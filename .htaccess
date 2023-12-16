@@ -1,0 +1,8 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{REQUEST_URI} !^public
+    RewriteRule ^(.*)$ public/$1 [L]
+
+ Redirect 301 https://schoolball.ru/home?utm_source=yandex&utm_medium=maps&utm_campaign=luch https://schoolball.ru/club_luch
+
+</IfModule>

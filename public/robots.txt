@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /index.php*
+Disallow: /*BrowserUpdate.exe
+Disallow: /login
+Allow: /*.css
+Allow: /*.js*
+Allow: /*.jpg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.svg
+Clean-param: amp&utm_source&etext
+Sitemap: https://schoolball.ru/sitemap.xml

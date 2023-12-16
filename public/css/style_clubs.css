@@ -1,0 +1,185 @@
+
+
+
+
+.card-logo-ellipse {
+    display: flex;
+    margin-top: 64px;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: #FEC311;
+    border-radius: 8px;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+.title-desc {
+    font-family: "IBMPlexSans-Bold", sans-serif !important;
+    font-size: 40px !important;
+    font-weight: bold !important;
+    margin-bottom: 24px !important;
+    line-height: 48px;
+    margin-top: 32px !important;
+
+}
+
+
+.text-desc {
+    font-size: 18px;
+    margin-bottom: 48px !important;
+    line-height: 32px;
+    font-family: IBM Plex Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+
+.topPartsGrayForAuth {
+    background: #f7f7f9;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    height: 611px;
+    position: absolute;
+    width: 100%;
+}
+.card-adv-body {
+    border-radius: 8px;
+    border: 1px solid var(--interface-e-1-e-5-e-9, #E1E5E9);
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 24px 20px;
+    /* margin: 11px 0 0; */
+    font-size: 14px;
+    color: #303337;
+    margin-bottom: 32px;
+    height: 245px !important;
+}
+.card-adv-head-text {
+    font-family: "IBMPlexSans-Bold", sans-serif !important;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    margin-top: 8px;
+}
+.card-adv-text {
+    text-align: center;
+    /* 14/Text */
+
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.card-adv-img {
+    width: 64px;
+    height: 64px;
+    padding: 9.509px 0px;
+    justify-content: center;
+}
+
+.reviews_count {
+    width: 33px;
+    height: 32px;
+    margin: 0 12px 0 0;
+    font-family: IBMPlexSans;
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fec311;
+}
+
+.reviews_img_star {
+    width: 100px;
+    margin-top: -8px;
+}
+
+.reviews_text_star {
+    width: 242px;
+    height: 32px;
+    margin: 0 0 0 24px;
+    font-family: IBMPlexSans;
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-align: center;
+    color: #303337;
+}
+
+.reviews__text {
+    margin: 0 24px 0 0;
+    font-family: IBMPlexSans;
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.11;
+    letter-spacing: normal;
+    color: #303337;
+}
+.rew-card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    /* word-wrap: break-word; */
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0,0,0,.125);
+    /* border-radius: 0.25rem; */
+}
+
+.tariffs-note {
+
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    margin-bottom: 8px;
+}
+.section2 {
+    margin-top: 88px;
+}
+@media (min-width: 0px) and (max-width: 480px){
+    .title-desc {
+        font-size: 28px !important;
+        font-style: normal;
+        font-weight: 700 !important;
+        line-height: 32px!important;
+
+    }
+
+
+    .text-desc {
+        font-size: 16px !important;
+        font-style: normal;
+        font-weight: 400 !important;
+        line-height: 24px !important;
+    }
+
+    .section2{
+        /* margin-bottom: 64px !important; */
+        margin-top: 0px !important;
+    }
+
+    .form-block{
+        padding: 32px 20px !important;
+    }
+
+}

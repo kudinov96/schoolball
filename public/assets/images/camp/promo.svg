@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128" viewBox="0 0 128 128">
+    <defs>
+        <path id="ii6m3r434a" d="M0 0H128V128H0z"/>
+        <path id="uxzs1iqrzd" d="M17.263.293L137.472 120.5c.39.39.39 1.024 0 1.414l-15.557 15.557c-.39.39-1.023.39-1.414 0L.293 17.263c-.39-.39-.39-1.023 0-1.414L15.849.293c.39-.39 1.024-.39 1.414 0z"/>
+        <filter id="eh0g7uo6nc" width="111.6%" height="111.6%" x="-5.8%" y="-2.9%" filterUnits="objectBoundingBox">
+            <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.996078431 0 0 0 0 0.764705882 0 0 0 0 0.0666666667 0 0 0 0.254269046 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g transform="translate(-320 -7198) translate(0 4933) translate(0 2018) translate(320 247)">
+                        <mask id="u9agzl99sb" fill="#fff">
+                            <use xlink:href="#ii6m3r434a"/>
+                        </mask>
+                        <g mask="url(#u9agzl99sb)">
+                            <g>
+                                <g transform="translate(8 -18)">
+                                    <use fill="#000" filter="url(#eh0g7uo6nc)" xlink:href="#uxzs1iqrzd"/>
+                                    <use fill="#FEC311" xlink:href="#uxzs1iqrzd"/>
+                                </g>
+                                <text font-family="IBMPlexSans-Medium, IBM Plex Sans" font-size="14" font-weight="400" transform="translate(8 -18) rotate(45 69.59 68.175)">
+                                    <tspan x="17.089" y="74.175" fill="#342B06">-10% до 25 мая</tspan>
+                                </text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

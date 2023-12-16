@@ -1,0 +1,79 @@
+.card-flip
+{
+  width: 265px;
+  height: 400px;
+  cursor: pointer;
+  margin: 20px 0;
+
+  /*transition effects */
+  -webkit-transition: -webkit-transform 0.6s;
+  -moz-transition: -moz-transform 0.6s;
+  -o-transition: -o-transform 0.6s;
+  transition: transform 0.6s;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.card-flip.flipped
+{
+  -webkit-transform: rotateY( 180deg );
+  -moz-transform: rotateY( 180deg );
+  -o-transform: rotateY( 180deg );
+  transform: rotateY( 180deg );
+}
+.card-flip.flipped:
+{
+}
+
+.tippy-tooltip .light-theme[data-animatefill] {
+  background-color: transparent;
+}
+
+.light-theme {
+  color: #5d5b6f;
+  -webkit-box-shadow: 0 0 20px 4px #e9ecef, 0 4px 80px -8px #dee2e6, 0 4px 4px -2px #e9ecef;
+          box-shadow: 0 0 20px 4px #e9ecef, 0 4px 80px -8px #dee2e6, 0 4px 4px -2px #e9ecef;
+  background-color: #ffffff;
+}
+
+.light-theme .tippy-backdrop {
+  background-color: #ffffff;
+}
+
+.light-theme .tippy-roundarrow {
+  fill: #ffffff;
+}
+
+.gradient-theme {
+  font-weight: 700;
+}
+
+.gradient-theme .tippy-backdrop {
+  background: radial-gradient(circle at 67% 60%, #5766da, #00bcd4, #7043c1, #f93b7a);
+}
+
+.tippy-popper[x-placement^=top] .tippy-tooltip.light-theme .tippy-arrow {
+  border-top: 7px solid #ffffff;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.light-theme .tippy-arrow {
+  border-bottom: 7px solid #ffffff;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+
+.tippy-popper[x-placement^=left] .tippy-tooltip.light-theme .tippy-arrow {
+  border-left: 7px solid #ffffff;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
+
+.tippy-popper[x-placement^=right] .tippy-tooltip.light-theme .tippy-arrow {
+  border-right: 7px solid #ffffff;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+}
