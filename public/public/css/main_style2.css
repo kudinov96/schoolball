@@ -89,7 +89,7 @@ button{
     color: #303337;
 }
 
-.topHeaderYandexReview h4, p{
+ .topHeaderYandexReview h4,  .topHeaderYandexReview p{
     height: 20px;
     font-family: "IBMPlexSans", sans-serif;
     font-size: 16px;

@@ -1,0 +1,234 @@
+.section-preims{
+    margin-top: 80px;
+}
+
+.section-preims .container{
+    display: flex;
+    align-items: center;
+}
+
+.section-preims__img{
+    margin-right: 60px;
+}
+
+.section-preims__img img{
+    display: block;
+    max-width: 100%;
+}
+
+.section-preims__title{
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 25px;
+    font-family: "IBM Plex Sans";
+}
+
+.ul-success{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: "IBM Plex Sans";
+}
+
+.ul-success li{
+    position: relative;
+    padding-left: 32px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+
+.ul-success li:last-child{
+    margin-bottom: 0;
+}
+
+.ul-success li:before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-image: url("/assets/check.png");
+}
+
+.section-seo-two-columns{
+    margin-bottom: 60px;
+    font-family: "IBM Plex Sans";
+}
+
+.section-seo-two-columns > .container{
+    display: flex;
+}
+
+.section-seo-two-columns > .container > div{
+    width: calc(50% - 15px);
+}
+
+.section-seo-two-columns__left{
+    margin-right: 30px;
+}
+
+.section-seo-two-columns__title{
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px;
+    margin-bottom: 24px;
+}
+
+.seo-content-style p{
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+
+.seo-content-style ul{
+    margin-bottom: 15px !important;
+}
+
+.seo-content-style ul:last-child{
+    margin-bottom: 0 !important;
+}
+
+.section-seo-two-columns__left-block{
+    padding: 32px 24px;
+    border: 1px solid #E1E5E9;
+    border-radius: 10px;
+    margin-top: 48px;
+}
+
+.seo-content-style p:last-child{
+    margin-bottom: 0;
+}
+
+.seo-content-style ul li{
+    font-size: 16px !important;
+}
+
+.section-seo-two-columns__subtitle{
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 15px;
+}
+
+.section-seo-two-columns__right{
+    padding: 32px 24px;
+    border: 1px solid #E1E5E9;
+    border-radius: 10px;
+}
+
+.section-seo-two-columns__right-img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.section-seo-two-columns__right-img img {
+    display: block;
+}
+
+@media (max-width: 991px) {
+    .section-seo-two-columns > .container{
+        display: block;
+    }
+
+    .section-seo-two-columns > .container > div{
+        width: 100%;
+    }
+
+    .section-seo-two-columns__left{
+        margin-right: 0;
+        margin-bottom: 24px;
+    }
+
+    .section-seo-two-columns__title{
+        text-align: center;
+    }
+
+    .section-seo-two-columns__left-one p{
+        text-align: center;
+        font-size: 18px;
+        line-height: 32px;
+    }
+
+    .section-preims .container{
+        display: block;
+    }
+
+    .section-preims__img{
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+    }
+
+    .section-preims__title{
+        text-align: center;
+    }
+
+    .section-preims__block .ul-success{
+        columns: 2;
+    }
+
+    .ul-success{
+        font-size: 16px;
+    }
+
+    .section-preims__btn{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .seo-content-style p{
+        text-align: left !important;
+    }
+    .section-seo-two-columns__left-one p{
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center !important;
+    }
+
+    .section-seo-two-columns__title{
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 32px;
+        margin-bottom: 15px;
+    }
+
+    .section-seo-two-columns__left-block{
+        padding: 0;
+        border: none;
+    }
+
+    .section-seo-two-columns__left{
+        margin-bottom: 32px;
+    }
+
+    .section-seo-two-columns__right{
+        padding: 0;
+        border: none;
+    }
+
+    .section-preims__block .ul-success{
+        columns: 1;
+    }
+
+    .section-preims__btn button{
+        width: 100% !important;
+    }
+
+    .section-preims__img{
+        margin-bottom: 30px;
+    }
+}

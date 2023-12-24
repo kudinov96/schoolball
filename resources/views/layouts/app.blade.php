@@ -26,8 +26,9 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap-4.5.0-dist/css/bootstrap.min.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/main_style_site.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">    <link rel="stylesheet" href="{{ asset('css/main_style_site.css') }}">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/datepicker.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
@@ -36,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('js/slick/slick-theme.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/flipper.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="{{ asset('css/new.css') }}">
 
 
 

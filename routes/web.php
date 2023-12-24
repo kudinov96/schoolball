@@ -14,7 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'FrontController@index')->name('mainpage');
+//Route::get('/', 'FrontController@index')->name('mainpage');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'FrontController@home_index2')->name('/');
+
+Route::get('/home', function () {
+    return redirect('/', 301);
+})->name('home');
+
+Route::get('/home2', 'FrontController@home_index')->name('home2');
+
+Route::prefix('football-dly-detey')->group(function () {
+    Route::get('{slug}', [\App\Http\Controllers\PageController::class, "footballForChildren"]);
+});
 
 Route::get('firebase','FirebaseController@index');
 
@@ -65,15 +78,6 @@ Route::match(['get','post'], '/kinship/{id}/edit', 'HomeController@kinshipEdit')
 Route::get('/club_{id}', 'FrontController@index_club')->name('club');
 
 Route::post('/findCoachOnPhone', 'DataBaseController@findCoachOnPhone')->name('findCoachOnPhone');
-
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'FrontController@home_index2')->name('/');
-
-Route::get('/home', function () {
-    return redirect('/', 301);
-})->name('home');
-
-Route::get('/home2', 'FrontController@home_index')->name('home2');
 
 
 

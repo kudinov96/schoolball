@@ -3,22 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Services\PageData\PageDataService;
+use Auth;
+use DB;
+use GuzzleHttp;
 use Illuminate\Http\Request;
-use App\User;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use GuzzleHttp;
-use DB;
-use Auth;
 use View;
 
 class FrontController extends Controller
 {
+    /**
+     * @var PageDataService
+     */
+    private $pageDataService;
 
+    public function __construct(PageDataService $pageDataService)
+    {
+        $this->pageDataService = $pageDataService;
+    }
 
     public function index_quiz() {
 
@@ -348,10 +352,17 @@ class FrontController extends Controller
         $utm_source = $request->get('utm_source'); // yandexx utm
         $utm_campaign = $request->get('utm_campaign'); // yandexx utm
 
-
+        list($cards,
+            $tariffs,
+            $lastnews,
+            $arrupstudents,
+            $clublist,
+            $allcoachs,
+            $group_age,
+            $main
+        ) = $this->pageDataService->getData("footballForChildren");
 
       //  https://schoolball.ru/vk на https://schoolball.ru/home?utm_source=vk&utm_medium=social&utm_campaign=bio
-
 
         if($utm_source == 'yandex') {
             if ($utm_campaign == 'luch') {
@@ -435,44 +446,6 @@ class FrontController extends Controller
             }
 
         }
-
-        $cards = DB::select("SELECT * from tariffs_site where
-                                      id in( select min(id)
-                                    from tariffs_site group by `group_id`) ORDER by `group_id` ASC");
-
-
-        $tariffs = DB::table('tariffs_site')
-            ->where('default_public', 'on')
-            ->orderBy('price', 'ASC')
-            ->get();
-
-
-        $lastnews = DB::table('news')
-            ->take(3)
-            ->get();
-        $arrupstudents = DB::table('upstudent')
-            ->get();
-        $clublist = DB::table('club')
-            ->select('club.id', 'club.name', 'club.coords', 'club.address', 'club.*')
-            ->where('club.display_front', 1)
-            ->orderBy('club.check_metro', 'DESC')
-            ->orderBy('club.metro', 'ASC')
-
-            ->get();
-        $allcoachs = DB::table('coach')
-            ->join('users', 'coach.user_id', '=', 'users.id')
-            ->select('users.name', 'users.photo', 'users.social_vk', 'users.social_fb', 'users.social_inst', 'users.surname', 'users.secondname', 'coach.*')
-            ->where('coach.display_front', 1)
-            ->orderBy('coach.seniority', 'ASC')
-            ->get();
-
-
-        $group_age = DB::table('group_age')
-            ->get();
-
-        $main = DB::table('main_index')
-            ->where('id', 1)
-            ->first();
 
         return view('home_index_2')
             ->with("lastnews", $lastnews)
