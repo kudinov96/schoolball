@@ -57,6 +57,7 @@
 }
 
 .section-seo-two-columns{
+    margin-top: 120px;
     margin-bottom: 60px;
     font-family: "IBM Plex Sans";
 }
@@ -230,5 +231,8 @@
 
     .section-preims__img{
         margin-bottom: 30px;
+    }
+    .section-seo-two-columns{
+        margin-top: 80px;
     }
 }

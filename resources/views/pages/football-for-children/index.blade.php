@@ -1959,10 +1959,6 @@
 
     <!-- Section Coaches end -->
 
-    @if($seoBlock)
-        {!! $seoBlock !!}
-    @endif
-
     <!-- Section - championship !-->
 
     <div class="secondSection d-none d-md-block">
@@ -1975,13 +1971,18 @@
                 </div>
 
                 <div class="col-sm-12 col-md-7 thirdSectionDescription">
-                    <h4 class="d-none d-md-block">
+                    <h4 class="d-none d-md-block" style="height: auto;">
                         Наши ученики занимаются в клубах Школы, разбросанных
                         по всей столице, но ежегодно встречаются вместе на Чемпионате Школы, чтобы проверить свои силы в
                         настоящем матче. <br><br>
                         Чемпионат Школы мяча — это семейный праздник и важное событие для юных спортсменов. Он помогает
                         ребятам осознать истинную цену победы и мотивирует их на развитие в спорте.
-                    </h4></div>
+                    </h4>
+
+                    <button type="button" class="btn-desc waves-effect waves-light" style="width: auto;" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg">
+                        Подробнее о соревнованиях
+                    </button>
+                </div>
 
                 <div class=" d-none d-md-block col-md-5 thirdSectionImg"><img src="{{ asset('assets/group-70.png') }}"
                                                                               alt="" style="width: 100%;"></div>
@@ -1992,8 +1993,6 @@
     </div>
 
     <!-- Section - championship mob !-->
-
-
 
     <div class="fourthSection d-sm-block d-md-none" style="margin-top: 87px !important; ">
         <div class="container">
@@ -2016,9 +2015,19 @@
                 на развитие в спорте.
             </h5>
 
+            <button type="button" class="btn-desc waves-effect waves-light" style="width: auto !important;" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg">
+                Подробнее о соревнованиях
+            </button>
+
 
         </div>
     </div>
+
+
+
+    @if($seoBlock)
+        {!! $seoBlock !!}
+    @endif
 
 
 

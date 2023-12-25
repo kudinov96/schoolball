@@ -48,7 +48,7 @@ class FootballForChildrenData
         $ageText = null;
         $seoBlock = null;
         if ($slug === "3-let") {
-            $ageText = "от 3";
+            $ageText = "3";
             $seoBlock = view("pages.football-for-children.seo-blocks.3")->render();
         } else if ($slug === "4-5-let") {
             $ageText = "4-5";
