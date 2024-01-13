@@ -91,6 +91,18 @@
                                                 <h4 style="word-break: break-word;"> {{ $coach->education }}</h4>
                                                 <h3>Карьера</h3>
                                                 <h4 style="word-break: break-word;">{{ $coach->career }}</h4>
+                                                @if($coach->career_football)
+                                                    <h3>Карьера футболиста</h3>
+                                                    <h4 style="word-break: break-word;">{{ $coach->career_football }}</h4>
+                                                @endif
+                                                @if($coach->career_football)
+                                                    <h3>Карьера тренера</h3>
+                                                    <h4 style="word-break: break-word;">{{ $coach->career_trainer }}</h4>
+                                                @endif
+                                                @if($coach->career_football)
+                                                    <h3>Достижения</h3>
+                                                    <h4 style="word-break: break-word;">{{ $coach->achievements }}</h4>
+                                                @endif
 
                                             </div>
 
@@ -204,7 +216,18 @@
                                     <h4> {{ $coach->education }}</h4>
                                     <h3>Карьера</h3>
                                     <h4>{{ $coach->career }}</h4>
-
+                                    @if($coach->career_football)
+                                        <h3>Карьера футболиста</h3>
+                                        <h4>{{ $coach->career_football }}</h4>
+                                    @endif
+                                    @if($coach->career_football)
+                                        <h3>Карьера тренера</h3>
+                                        <h4>{{ $coach->career_trainer }}</h4>
+                                    @endif
+                                    @if($coach->career_football)
+                                        <h3>Достижения</h3>
+                                        <h4>{{ $coach->achievements }}</h4>
+                                    @endif
 
 
                                     <!-- social !-->

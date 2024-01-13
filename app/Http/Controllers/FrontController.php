@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\Club;
 use App\Services\PageData\PageDataService;
 use Auth;
 use DB;
@@ -130,7 +131,6 @@ class FrontController extends Controller
             ->select('club.*', 'area.photo', 'area.adress', 'area.geo_mark','users.phone_number', 'area.options')
             ->where('club.slug', $id)
             ->first();
-
         if($clubArray){
             /*
             $allcoachs = DB::table('coach')
@@ -141,16 +141,20 @@ class FrontController extends Controller
                 ->get();
             */
 
-            $coachIds = explode('/', trim($clubArray->id_coachs, '/'));
+            //$coachIds = explode('/', trim($clubArray->id_coachs, '/'));
 
-            $allcoachs = DB::table('coach')
+            $clubNorm = Club::query()->where("slug", $id)->first();
+            $allcoachs = $clubNorm->coaches()->with("user")->get();
+
+            /*$allcoachs = DB::table('coach')
                 ->join('users', 'coach.user_id', '=', 'users.id')
-                ->join('club', 'coach.club_id', '=', 'club.id') // добавление соединения с таблицей club
+                ->join('coach_club', 'coach.id', '=', 'coach_club.coach_id')
+                //->join('club', 'coach.club_id', '=', 'club.id') // добавление соединения с таблицей club
                 ->select('users.name', 'users.photo', 'users.surname', 'users.secondname', 'users.*', 'coach.*')
-                ->where('coach.display_front', 1)
-                ->whereIn('coach.id', $coachIds)
+                //->where('coach.display_front', 1)
+                //->whereIn('coach.id', $coachIds)
                 ->get();
-          //  dd($allcoachs);
+          dd($allcoachs);*/
         }
         if (is_object($club) && isset($club->options)) {
             $arroption = str_split($club->options);

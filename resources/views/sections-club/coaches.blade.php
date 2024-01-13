@@ -77,11 +77,14 @@
 
                                                 <?php // <img src="{{ asset('/assets/trainer-screen.png') }}" alt=""> <img src="{{ asset('/storage/') }}/{{ str_replace("public/", "", $coach->photo) }}" alt="">
                                                 ?>
-                                            <img src="{{ asset('/storage/') }}/{{ str_replace("public/", "", $coach->photo) }}" alt="">
+
+                                            @if($coach->user->photo)
+                                                <img src="{{ asset('/storage/') }}/{{ str_replace("public/", "", $coach->user->photo) }}" alt="">
+                                            @endif
 
                                         </div>
                                         <div class="coachInfo">
-                                            <h3>{{ $coach->surname}} {{ $coach->name}}</h3>
+                                            <h3>{{ $coach->user->surname}} {{ $coach->user->name}}</h3>
                                             <h4>Тренерский опыт более {{ $coach->seniority}}@if ($coach->seniority == 1)
                                                     года
                                                 @else
@@ -94,10 +97,19 @@
                                                 <h4 style="word-break: break-word;"> {{ $coach->education }}</h4>
                                                 <h3>Карьера</h3>
                                                 <h4 style="word-break: break-word;">{{ $coach->career }}</h4>
-
+                                                @if($coach->career_football)
+                                                    <h3>Карьера футболиста</h3>
+                                                    <h4 style="word-break: break-word;">{{ $coach->career_football }}</h4>
+                                                @endif
+                                                @if($coach->career_football)
+                                                    <h3>Карьера тренера</h3>
+                                                    <h4 style="word-break: break-word;">{{ $coach->career_trainer }}</h4>
+                                                @endif
+                                                @if($coach->career_football)
+                                                    <h3>Достижения</h3>
+                                                    <h4 style="word-break: break-word;">{{ $coach->achievements }}</h4>
+                                                @endif
                                             </div>
-
-
                                         </div>
 
                                     </div>
@@ -136,7 +148,7 @@
                                     <img src="{{ asset('/assets/trainer-screen.png') }}" alt="">
                                 </div>
                                 <div class="coachInfo">
-                                    <h3>{{ $coach->surname}} {{ $coach->name}}</h3>
+                                    <h3>{{ $coach->user->surname}} {{ $coach->user->name}}</h3>
                                     <h4>Тренерский опыт более {{ $coach->seniority}}@if ($coach->seniority == 1)
                                             года
                                         @else
@@ -191,13 +203,14 @@
                                     <img src="{{ asset('/storage/') }}/{{ str_replace("public/", "", $coach->photo) }}"
                                          alt="">
  */ ?>
-                                    <img src="{{ asset('/storage/') }}/{{ str_replace("public/", "", $coach->photo) }}"
-                                         alt="">
-
+                                    @if($coach->user->photo)
+                                        <img src="{{ asset('/storage/') }}/{{ str_replace("public/", "", $coach->user->photo) }}"
+                                             alt="">
+                                    @endif
 
                                 </div>
                                 <div class="coachInfo-mob">
-                                    <h3>{{ $coach->surname}} {{ $coach->name}}</h3>
+                                    <h3>{{ $coach->user->surname}} {{ $coach->user->name}}</h3>
                                     <h4>Тренерский опыт более {{ $coach->seniority}}@if ($coach->seniority == 1)
                                             года
                                         @else
@@ -207,7 +220,18 @@
                                     <h4 style="word-break: break-word;"> {{ $coach->education }}</h4>
                                     <h3>Карьера</h3>
                                     <h4 style="word-break: break-word;">{{ $coach->career }}</h4>
-
+                                    @if($coach->career_football)
+                                        <h3>Карьера футболиста</h3>
+                                        <h4 style="word-break: break-word;">{{ $coach->career_football }}</h4>
+                                    @endif
+                                    @if($coach->career_football)
+                                        <h3>Карьера тренера</h3>
+                                        <h4 style="word-break: break-word;">{{ $coach->career_trainer }}</h4>
+                                    @endif
+                                    @if($coach->career_football)
+                                        <h3>Достижения</h3>
+                                        <h4 style="word-break: break-word;">{{ $coach->achievements }}</h4>
+                                    @endif
 
 
 

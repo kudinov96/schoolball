@@ -75,8 +75,7 @@
                                 <div class="form-group row">
                                     <label for="id_area" class="col-md-2 col-form-label-new text-md-right">{{ __('Клуб') }}</label>
                                     <div class="col-sm-10">
-                                        <select name="club_id" class="custom-select">
-                                            <option value="0">Не выбрано</option>
+                                        <select name="club_ids[]" class="custom-select" multiple>
                                             @foreach ($clublist as $club)
                                                 <option value="{{ $club->id }}">{{ $club->name }} {{ $club->address }}</option>
                                             @endforeach
@@ -233,6 +232,34 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <label for="career" class="col-md-2 col-form-label-new text-md-right">{{ __('Карьера футболиста') }}</label>
+                                    <div class="col-md-10">
+                                        <textarea id="career" rows="5" type="text" class="form-control" name="career_football"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <label for="career" class="col-md-2 col-form-label-new text-md-right">{{ __('Карьера тренера') }}</label>
+                                    <div class="col-md-10">
+                                        <textarea id="career" rows="5" type="text" class="form-control" name="career_trainer"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-group row">
+                                    <label for="career" class="col-md-2 col-form-label-new text-md-right">{{ __('Достижения') }}</label>
+                                    <div class="col-md-10">
+                                        <textarea id="career" rows="5" type="text" class="form-control" name="achievements"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

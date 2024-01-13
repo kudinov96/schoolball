@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\Coach;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use DB;
 use Auth;
 use View;
 use Intervention\Image\Facades\Image;
@@ -103,26 +104,31 @@ class DataBaseController extends Controller
                 }
             }
 
+            $coachNorm = Coach::query()->where("id", $id)->first();
 
-
+            $clubIds = $data->input("club_ids");
+            if ($clubIds) {
+                 $coachNorm->clubs()->sync($clubIds);
+            } else {
+                 $coachNorm->clubs()->detach();
+            }
 
             DB::table('coach')
                 ->where('id', $id)
                 ->update([
                     'education' => $data['education'],
                     'license' => $data['license'],
-                    'club_id' => $data['club_id'],
                     'career' => $data['career'],
-
                     'cloth_size' => $data['cloth_size'],
                     'marital_status' => $data['marital-st'],
+                    'career_football' => $data['career_football'] ?? null,
+                    'career_trainer' => $data['career_trainer'] ?? null,
+                    'achievements' => $data['achievements'] ?? null,
                     'kids' => $data['kids'],
                     'seniority' => $data['seniority'],
                     'display_front' => $display,
                     'display_front_camp' => $display_camp,
                     'pages' => implode(',', $data->input('pages', [])),
-
-
                     'availability' => $avail
                 ]);
             $coach = DB::table('coach')
@@ -196,13 +202,15 @@ class DataBaseController extends Controller
             ->where('club.display_front', 1)
             ->get();
 
+        $coachNorm = Coach::query()->where("id", $id)->first();
+
         $nameroute = "Редактирование тренера: " . $coach->surname . " " . $coach->name;
         return view('login/coach/coachEdit')
             ->with('date', $date)
             ->with('coach', $coach)
             ->with('arrday', $arrday)
             ->with('clublist', $clublist)
-
+            ->with('coachNorm', $coachNorm)
             ->with("nameroute", $nameroute);
     }
 
@@ -2944,7 +2952,6 @@ class DataBaseController extends Controller
 
 
             $user_id =  DB::table('users')->insertGetId([
-
                 'surname' => $data['surname'],
                 'name' => $data['name'],
                 'secondname' => $data['secondname'],
@@ -2954,31 +2961,33 @@ class DataBaseController extends Controller
                 'phone_number' => $data['phone_number'],
                 'location' => $data['location'],
                 'email' => $data['email'],
-
-
                 'sex' => $data['sex']
-
             ]);
 
-
-            DB::table('coach')->insert([
+            $id = DB::table('coach')->insertGetId([
                 'user_id' => $user_id,
-
                 'education' => $data['education'],
                 'license' => $data['license'],
-                'club_id' => $data['club_id'],
                 'career' => $data['career'],
-
                 'cloth_size' => $data['cloth_size'],
                 'marital_status' => $data['marital-st'],
                 'kids' => $data['kids'],
                 'seniority' => $data['seniority'],
+                'career_football' => $data['career_football'] ?? null,
+                'career_trainer' => $data['career_trainer'] ?? null,
+                'achievements' => $data['achievements'] ?? null,
                 'display_front' => $display,
                 'display_front_camp' => $display_camp,
                 'pages' => implode(',', $pages),
-
                 'availability' => $avail
             ]);
+
+            $coachNorm = Coach::query()->where("id", $id)->first();
+
+            $clubIds = $data->input("club_ids");
+            if ($clubIds) {
+                $coachNorm->clubs()->sync($clubIds);
+            }
 
             return redirect()->route('coachList');
         }

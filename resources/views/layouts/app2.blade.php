@@ -47,7 +47,7 @@
 
 
     <link rel="stylesheet" href="{{ asset('css/floating_forms.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/new.css') }}">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
 

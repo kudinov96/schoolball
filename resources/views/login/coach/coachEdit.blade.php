@@ -80,10 +80,10 @@
                 <div class="form-group row">
                     <label for="id_area" class="col-md-2 col-form-label-new text-md-right">{{ __('Клуб') }}</label>
                     <div class="col-sm-10">
-                        <select name="club_id" class="custom-select">
-                            <option value="0">Не выбрано</option>
+                        <select name="club_ids[]" class="custom-select" multiple>
                             @foreach ($clublist as $club)
-                                <option value="{{ $club->id }}" @if ($club->id == $coach->club_id) selected @endif>{{ $club->name }} {{ $club->address }}</option>
+                                @php $selected = $coachNorm->clubs->where("id", $club->id)->first(); @endphp
+                                <option value="{{ $club->id }}" @if($selected) selected @endif>{{ $club->name }} {{ $club->address }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -238,6 +238,34 @@
                 </div>
               </div>
             </div>
+
+              <div class="col-12">
+                  <div class="form-group row">
+                      <label for="career" class="col-md-2 col-form-label-new text-md-right">{{ __('Карьера футболиста') }}</label>
+                      <div class="col-md-10">
+                          <textarea id="career" rows="5" type="text" class="form-control" name="career_football">{{ $coach->career_football }}</textarea>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-12">
+                  <div class="form-group row">
+                      <label for="career" class="col-md-2 col-form-label-new text-md-right">{{ __('Карьера тренера') }}</label>
+                      <div class="col-md-10">
+                          <textarea id="career" rows="5" type="text" class="form-control" name="career_trainer">{{ $coach->career_trainer }}</textarea>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-12">
+                  <div class="form-group row">
+                      <label for="career" class="col-md-2 col-form-label-new text-md-right">{{ __('Достижения') }}</label>
+                      <div class="col-md-10">
+                          <textarea id="career" rows="5" type="text" class="form-control" name="achievements">{{ $coach->achievements }}</textarea>
+                      </div>
+                  </div>
+              </div>
+
           </div>
         </div>
       </div>
