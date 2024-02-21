@@ -20,18 +20,28 @@
                     <img src="{{ asset('/storage/') }}/{{ str_replace("public/", "", $row) }}"  alt="" style="width: 360px;"> <br>
                 @endforeach
 
-                <input required type="file" class="form-control" name="images[]" placeholder="address" multiple>
+                <input type="file" class="form-control" name="images[]" placeholder="address" multiple>
 
 
 
             </div>
           </div>
-             <hr>
+            <hr>
+
+            <div class="abonements-edit">
+                <h3>Абонементы</h3>
+                <select name="index_abonements[]" multiple="multiple" class="form-control select2" style="min-height: 250px">
+                    <option value="">Не выбрано</option>
+                    @foreach ($abonements as $abonement)
+                        <option value="{{ $abonement->id }}" @if(in_array($abonement->id, $index_abonements)) selected @endif>{{ $abonement->id }}: {{ $abonement->name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
           </div>
 
           <div class="col-12">
-              <div class="col-md-10 offset-md-1 mainHeaderButton">
+              <div class="col-md-10 mainHeaderButton mb-4">
                   <button type="submit"  class="btn btn-dark waves-effect waves-light" name="">Сохранить и выйти</button>
 
               </div>

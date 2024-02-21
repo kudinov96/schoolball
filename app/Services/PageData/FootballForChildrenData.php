@@ -8,14 +8,14 @@ class FootballForChildrenData
 {
     public static function getData(?string $slug = null)
     {
-        $cards = DB::select("SELECT * from tariffs_site where
+        /*$cards = DB::select("SELECT * from tariffs_site where
                                       id in( select min(id)
                                     from tariffs_site group by `group_id`) ORDER by `group_id` ASC");
 
         $tariffs = DB::table('tariffs_site')
             ->where('default_public', 'on')
             ->orderBy('price', 'ASC')
-            ->get();
+            ->get();*/
 
         $lastnews = DB::table('news')
             ->take(3)
@@ -62,8 +62,10 @@ class FootballForChildrenData
         }
 
         return [
-            $cards,
-            $tariffs,
+            /*$cards,
+            $tariffs,*/
+            [],
+            [],
             $lastnews,
             $arrupstudents,
             $clublist,

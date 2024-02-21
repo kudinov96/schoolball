@@ -261,7 +261,7 @@ class CrmController extends Controller
     // Тарифы на абонементы
     public function index_tariff() {
 
-        $crmtable = DB::table('tariff')->orderBy('id', 'DESC')->get();
+        $crmtable = DB::table('abonement')->orderBy('id', 'DESC')->get();
 
 
         $nameroute = "Тарифы ";
@@ -347,7 +347,7 @@ class CrmController extends Controller
 
             ->get();
 
-        $tarifflist = DB::table('tariff')->orderBy('id', 'DESC')->get();
+        $tarifflist = DB::table('abonement')->orderBy('id', 'DESC')->get();
 
         $nameroute = "Абонементы ";
         return view('login/abonement/abonementList')

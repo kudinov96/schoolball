@@ -9,55 +9,55 @@
         <div class="card-body">
           <h4 class="mt-0 header-title">Основная информация</h4>
           <div class="row">
-            <div class="col-lg-6">
-              <div class="form-group row">
-                  <label for="group_age_id" class="col-sm-2 col-form-label text-right">{{ __('Наименование') }}</label>
-                  <div class="col-sm-10">
-                      <input id="name" name="name" class="form-control" type="text" value="" required>
-
-                  </div>
-              </div>
+            <div class="col-lg-12">
                 <div class="form-group row">
-                    <label for="classes" class="col-sm-2 col-form-label text-right">{{ __('Занятий') }}</label>
-                    <div class="col-sm-5">
-                        <input id="classes" name="classes" class="form-control" type="text" value="" required>
+                    <label for="name" class="col-sm-2 col-form-label text-right">{{ __('Наименование') }}</label>
+                    <div class="col-sm-10">
+                        <input id="name" name="name" class="form-control" type="text" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="freezing" class="col-sm-2 col-form-label text-right">{{ __('Заморозки') }}</label>
-                    <div class="col-sm-5">
-                        <input id="freezing" name="freezing" class="form-control" type="text" value="" required>
+                    <label for="is_transfer" class="col-sm-2 col-form-label text-right">{{ __('Перенос занятий') }}</label>
+                    <div class="col-sm-1">
+                        <input style="width: 20px;" id="is_transfer" name="is_transfer" class="form-control form-control_checkbox" type="checkbox">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="training" class="col-sm-2 col-form-label text-right">{{ __('Тренировка') }}</label>
-                    <div class="col-sm-5">
-                        <input id="training" name="training" class="form-control" type="text" value="" required>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label for="per_month" class="col-sm-2 col-form-label text-right">{{ __('За месяц') }}</label>
-                    <div class="col-sm-5">
-                        <input id="classes" name="per_month" class="form-control" type="text" value="" required>
+                    <label for="is_favorite" class="col-sm-2 col-form-label text-right">{{ __('Выделенное') }}</label>
+                    <div class="col-sm-1">
+                        <input style="width: 20px;"  id="is_favorite" name="is_favorite" class="form-control form-control_checkbox" type="checkbox">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="cost" class="col-sm-2 col-form-label text-right">{{ __('Стоимость') }}</label>
-                    <div class="col-sm-5">
-                        <input id="cost" name="cost" class="form-control" type="text" value="" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="gift" class="col-sm-2 col-form-label text-right">{{ __('Подарок') }}</label>
-                    <div class="col-sm-12">
-                        <input id="gift" name="gift" class="form-control" type="text" value="" >
+                    <div class="col-sm-2">
+                        <input id="cost" name="cost" class="form-control" type="text" required>
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <label for="cost_one_training" class="col-sm-2 col-form-label text-right">{{ __('Стоимость за тренировку') }}</label>
+                    <div class="col-sm-2">
+                        <input id="cost_one_training" name="cost_one_training" class="form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="profit" class="col-sm-2 col-form-label text-right">{{ __('Выгоднее в %') }}</label>
+                    <div class="col-sm-2">
+                        <input id="profit" name="profit" class="form-control" type="text">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="included" class="col-sm-2 col-form-label text-right">{{ __('Включено') }}</label>
+                    <div class="col-sm-5">
+                        <textarea id="included" name="included" class="form-control"></textarea>
+                    </div>
+                </div>
             </div>
           </div>
 

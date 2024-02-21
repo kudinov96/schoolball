@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\Abonement;
 use App\Models\Club;
 use App\Services\PageData\PageDataService;
 use Auth;
@@ -132,29 +133,8 @@ class FrontController extends Controller
             ->where('club.slug', $id)
             ->first();
         if($clubArray){
-            /*
-            $allcoachs = DB::table('coach')
-                ->join('users', 'coach.user_id', '=', 'users.id')
-                ->select('users.name', 'users.photo', 'users.surname', 'users.secondname', 'users.*', 'coach.*')
-                ->where('coach.display_front', 1)
-                ->where('club.club_id',  $clubArray->id)
-                ->get();
-            */
-
-            //$coachIds = explode('/', trim($clubArray->id_coachs, '/'));
-
             $clubNorm = Club::query()->where("slug", $id)->first();
             $allcoachs = $clubNorm->coaches()->with("user")->get();
-
-            /*$allcoachs = DB::table('coach')
-                ->join('users', 'coach.user_id', '=', 'users.id')
-                ->join('coach_club', 'coach.id', '=', 'coach_club.coach_id')
-                //->join('club', 'coach.club_id', '=', 'club.id') // добавление соединения с таблицей club
-                ->select('users.name', 'users.photo', 'users.surname', 'users.secondname', 'users.*', 'coach.*')
-                //->where('coach.display_front', 1)
-                //->whereIn('coach.id', $coachIds)
-                ->get();
-          dd($allcoachs);*/
         }
         if (is_object($club) && isset($club->options)) {
             $arroption = str_split($club->options);
@@ -162,21 +142,10 @@ class FrontController extends Controller
             $arroption = '';
         }
 
-        $abonements = DB::table('abonement')
-            ->join('club', 'club.id', '=', 'abonement.club_id')
-            ->join('tariff', 'tariff.id', '=', 'abonement.tariff_id')
-            ->select( 'abonement.*', 'club.*', 'tariff.*')
-            ->where('abonement.club_id', $clubArray->id)
-
-            ->get();
+        $clubModel = Club::query()->where("slug", $id)->first();
 
 
         $group_age = DB::table('group_age')
-            ->get();
-
-        $tariffs = DB::table('tariffs_site')
-            ->where('club_id', $clubArray->id)
-
             ->get();
 
         $section = DB::table('group_section')
@@ -199,9 +168,9 @@ class FrontController extends Controller
                                     club_id=$clubArray->id AND group_age_id in( select min(group_age_id)
                                     from training_schedule group by `group_age_id`) ORDER by `group_age_id` ASC");
 
-        $cards_price = DB::select("SELECT * from tariffs_site where
+        /*$cards_price = DB::select("SELECT * from tariffs_site where
                                       id in( select min(id)
-                                    from tariffs_site group by `group_id`) ORDER by `group_id` ASC");
+                                    from tariffs_site group by `group_id`) ORDER by `group_id` ASC");*/
 
 
         $main = DB::table('main_index')
@@ -215,11 +184,10 @@ class FrontController extends Controller
           ->with("schedule", $schedule)
           ->with("cards", $cards)
             ->with("section", $section)
-          ->with("abonements", $abonements)
+          ->with("clubModel", $clubModel)
           ->with("group_age", $group_age)
             ->with("main", $main)
-          ->with("tariffs", $tariffs)
-            ->with("cards_price", $cards_price)
+            /*->with("cards_price", $cards_price)*/
 
           ->with("id", $id)
         ->with("arroption", $arroption)
@@ -351,8 +319,6 @@ class FrontController extends Controller
 
 
     public function home_index2(Request $request) {
-
-
         $utm_source = $request->get('utm_source'); // yandexx utm
         $utm_campaign = $request->get('utm_campaign'); // yandexx utm
 
@@ -451,7 +417,15 @@ class FrontController extends Controller
 
         }
 
+        $index_abonements = \Illuminate\Support\Facades\DB::table("options")
+            ->where("key" , "index_abonements")
+            ->first();
+        $index_abonements = json_decode($index_abonements->value, true);
+
+        $abonements = Abonement::query()->whereIn("id", $index_abonements)->get();
+
         return view('home_index_2')
+            ->with("abonements", $abonements)
             ->with("lastnews", $lastnews)
             ->with("clublist", $clublist)
             ->with("cards", $cards)
@@ -459,7 +433,8 @@ class FrontController extends Controller
             ->with("tariffs", $tariffs)
             ->with("group_age", $group_age)
             ->with("arrupstudents", $arrupstudents)
-            ->with("allcoachs", $allcoachs);
+            ->with("allcoachs", $allcoachs)
+            ->with("index_abonements", $index_abonements);
 
     }
 
@@ -551,8 +526,6 @@ class FrontController extends Controller
             }
 
         }
-
-
         $lastnews = DB::table('news')
             ->take(3)
             ->get();
@@ -1133,15 +1106,15 @@ class FrontController extends Controller
     public function index_wekeend() {
 
 
-        $cards = DB::select("SELECT * from tariffs_site where
+        /*$cards = DB::select("SELECT * from tariffs_site where
                                       id in( select min(id)
-                                    from tariffs_site group by `group_id`) ORDER by `group_id` ASC");
+                                    from tariffs_site group by `group_id`) ORDER by `group_id` ASC");*/
 
 
-        $tariffs = DB::table('tariffs_site')
+        /*$tariffs = DB::table('tariffs_site')
             ->where('default_public', 'on')
             ->orderBy('price', 'ASC')
-            ->get();
+            ->get();*/
 
 
         $lastnews = DB::table('news')
@@ -1188,7 +1161,7 @@ class FrontController extends Controller
             ->with("clublist", $clublist)
             ->with("cards", $cards)
             ->with("main", $main)
-            ->with("tariffs", $tariffs)
+            //->with("tariffs", $tariffs)
             ->with("group_age", $group_age)
             ->with("arrupstudents", $arrupstudents)
             ->with("reviews", $allreviews)

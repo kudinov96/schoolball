@@ -9,8 +9,6 @@
 
 @section('content')
 
-
-
     <div class="topPartsGray no-radius d-none d-md-block">
         <div class="container">
             <div class="firstSection">

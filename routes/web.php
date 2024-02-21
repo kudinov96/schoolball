@@ -305,7 +305,7 @@ Route::get('/referal', 'FrontController@index_referal')->name('referal');
 // Таблица тарифов на главной странице
 
 Route::match(['get','post'], '/tarifflistNew', 'DataBaseController@createNewTarifflist')->name('tarifflistNew');
-Route::get('/tarifflist', 'CrmController@index_tarifflist')->name('tarifflist');
+/*Route::get('/tarifflist', 'CrmController@index_tarifflist')->name('tarifflist');*/
 Route::match(['get','post'], '/tarifflist/{id}/delete', 'DataBaseController@tarifflistDelete')->name('tarifflistDelete');
 Route::match(['get','post'], '/tarifflist/{id}/edit', 'DataBaseController@tarifflistEdit')->name('tarifflistEdit');
 

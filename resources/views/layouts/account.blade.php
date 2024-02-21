@@ -27,6 +27,9 @@
          <script type="text/javascript" src="{{ asset('js/jquery.dateandtime.js') }}"></script>
           <script type="text/javascript" src="{{ asset('js/ckeditor5-build-classic/ckeditor.js') }}"></script>
 
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
+
     </head>
 
     <body>
@@ -385,6 +388,14 @@
 
         <!-- App js -->
         <script src="{{ asset('assets/js/app.js') }}"></script>
+
+
+
+        <script>
+            $(document).ready(function() {
+                $('.select2').select2();
+            });
+        </script>
 
     </body>
 </html>

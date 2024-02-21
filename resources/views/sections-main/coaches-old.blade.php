@@ -57,17 +57,7 @@
                     <div class="text-center mt-3">
                         <div class="select-area">
 
-                            <select  name="choose" id="choose" class="custom-select custom-select-lg mb-3 coach-select mobl">
-                                <option value="opt1" selected>Все отделения</option>
 
-                                @foreach ($clublist as $club)
-
-                                    <option value="opt{{ $club->id }}">{{ $club->address }}</option>
-
-                                @endforeach
-
-
-                            </select>
                         </div>
 
                     </div>

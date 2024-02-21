@@ -85,7 +85,7 @@
               <div class="form-group row">
                 <label for="id_coachs" class="col-md-2 col-form-label-new text-md-right">{{ __('Тренеры клуба') }}</label>
                 <div class="col-sm-10">
-                  <select name="id_coachs[]" multiple="" class="form-control" id="exampleFormControlSelect2">
+                  <select name="id_coachs[]" multiple="multiple" class="form-control select2" id="exampleFormControlSelect2" style="min-height: 250px">
                     <option value="">Не выбрано</option>
                     @foreach ($arrcoach as $coach)
                       @php $arr = explode("/", $club->id_coachs); @endphp
@@ -123,7 +123,6 @@
 
                 </div>
 
-
                 <div class="form-group row">
                     <label for="time" class="col-sm-3 col-form-label text-right">{{ __('Время работы') }}</label>
                     <div class="col-sm-6">
@@ -133,14 +132,24 @@
 
                 </div>
 
-
-
               <div class="form-group row">
                 <label for="display-front" class="col-md-6 col-form-label-new text-md-right">{{ __('Отображать на главной странице') }}</label>
                 <div class="col-sm-6">
                   <input id="display-front" type="checkbox" class="form-control-new" name="display-front" @if ($club->display_front == True) checked @endif>
                 </div>
               </div>
+
+                <hr>
+
+                <div class="abonements-edit">
+                    <h3>Абонементы клуба</h3>
+                    <select name="abonements[]" multiple="multiple" class="form-control select2" style="min-height: 250px">
+                        <option value="">Не выбрано</option>
+                        @foreach ($abonements as $abonement)
+                            <option value="{{ $abonement->id }}" @if($clubModel->abonements->contains("id", $abonement->id)) selected @endif>{{ $abonement->id }}: {{ $abonement->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
             <div class="col-lg-6">
               <input type="file" id="input-file-now-custom-1" name="img" class="dropify" data-default-file="@if ($area->photo == ""){{ asset('assets/no_photo.jpg') }}@else{{ asset('/storage/') }}/{{ str_replace("public/", "", $club->logo) }}@endif" />

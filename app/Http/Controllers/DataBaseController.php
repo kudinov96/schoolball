@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Models\Abonement;
+use App\Models\Club;
 use App\Models\Coach;
 use Illuminate\Http\Request;
 use App\User;
@@ -1052,17 +1054,14 @@ class DataBaseController extends Controller
 
         if ($data->isMethod('POST')) {
 
-            DB::table('tariff')->insert([
-                'classes' => $data['classes'],
+            DB::table('abonement')->insert([
                 'name' => $data['name'],
-                'freezing' => $data['freezing'],
-                'training' => $data['training'],
-                'per_month' => $data['per_month'],
-                'gift' => $data['gift'],
                 'cost' => $data['cost'],
-
-
-
+                'included' => $data['included'],
+                'is_transfer' => isset($data['is_transfer']),
+                'is_favorite' => isset($data['is_favorite']),
+                'profit' => $data['profit'],
+                'cost_one_training' => $data['cost_one_training'],
             ]);
 
             return redirect()->route('tariff');
@@ -1079,23 +1078,17 @@ class DataBaseController extends Controller
     public function tariffEdit(Request $data, $id)
     {
         if ($data->isMethod("POST")) {
-
-
-
-            DB::table('tariff')
+            DB::table('abonement')
                 ->where('id', $id)
                 ->update([
-                    'classes' => $data['classes'],
                     'name' => $data['name'],
-                    'freezing' => $data['freezing'],
-                    'training' => $data['training'],
-                    'per_month' => $data['per_month'],
-                    'gift' => $data['gift'],
                     'cost' => $data['cost'],
-
+                    'included' => $data['included'],
+                    'is_transfer' => isset($data['is_transfer']),
+                    'is_favorite' => isset($data['is_favorite']),
+                    'profit' => $data['profit'],
+                    'cost_one_training' => $data['cost_one_training'],
                 ]);
-
-
 
             return redirect()->route('tariff');
         } else if ($data->isMethod("GET")) {
@@ -1107,7 +1100,7 @@ class DataBaseController extends Controller
     {
 
 
-        $tariff = DB::table('tariff')
+        $tariff = DB::table('abonement')
             ->where('id', $id)
             ->first();
 
@@ -1123,7 +1116,7 @@ class DataBaseController extends Controller
     public function tariffDelete(Request $data, $id)
     {
         if ($data->isMethod('POST')) {
-            DB::table('tariff')
+            DB::table('abonement')
                 ->where('id', $id)
                 ->delete();
         }
@@ -1145,7 +1138,7 @@ class DataBaseController extends Controller
 
             ->get();
 
-        $tarifflist = DB::table('tariff')->orderBy('id', 'DESC')->get();
+        $tarifflist = DB::table('abonement')->orderBy('id', 'DESC')->get();
 
         $nameroute = "Создание нового тарифа";
         return view('login/abonement/abonementNew')
@@ -1491,7 +1484,7 @@ class DataBaseController extends Controller
 
             ->get();
 
-        $tarifflist = DB::table('tariff')->orderBy('id', 'DESC')->get();
+        $tarifflist = DB::table('abonement')->orderBy('id', 'DESC')->get();
 
 
         $abonement = DB::table('abonement')
@@ -1542,10 +1535,15 @@ class DataBaseController extends Controller
                 ->where('id', $id)
                 ->update([
                     'images_traning' => implode("|",$images),
-
                 ]);
 
-
+            if ($data->input("index_abonements")) {
+                DB::table("options")->updateOrInsert([
+                    "key" => "index_abonements"
+                ], [
+                    "value" => json_encode($data->input("index_abonements")),
+                ]);
+            }
 
             return redirect('mainindex/1/edit');
         } else if ($data->isMethod("GET")) {
@@ -1560,12 +1558,17 @@ class DataBaseController extends Controller
             ->where('id', $id)
             ->first();
 
+        $index_abonements = DB::table("options")
+            ->where("key" , "index_abonements")
+            ->first();
 
+        $index_abonements = json_decode($index_abonements->value, true);
 
         $nameroute = "Редактирование главной: ";
         return view('login/mainindex/mainindexEdit')
             ->with("mainindex", $mainindex)
-
+            ->with("index_abonements", $index_abonements)
+            ->with('abonements', Abonement::query()->get())
 
             ->with("nameroute", $nameroute);
 
@@ -3041,7 +3044,7 @@ class DataBaseController extends Controller
             }
 
 
-                DB::table('club')->insert([
+                $id = DB::table('club')->insertGetId([
                     'name' => $data['name'],
                     'description' => $data['description'],
                     'coords' => $data['coords'],
@@ -3065,6 +3068,9 @@ class DataBaseController extends Controller
                     'logo' => $path_image
                 ]);
 
+            $club = Club::query()->where("id", $id)->first();
+            $club->abonements()->sync($data['abonements']);
+
             return redirect()->route('clubList');
         }
 
@@ -3087,6 +3093,7 @@ class DataBaseController extends Controller
         $arrarea = DB::table('area')->get();
         $nameroute = "Создание нового клуба";
         return view('login/club/clubNew')
+            ->with('abonements', Abonement::query()->get())
             ->with('arrmanagers', $arrmanagers)
             ->with('arrcoach', $arrcoach)
             ->with('arrarea', $arrarea)
@@ -3138,18 +3145,16 @@ class DataBaseController extends Controller
                     ]);
             }
 
-            DB::table('club')
+            DB::table("club")
                 ->where('id', $id)
                 ->update([
                     'name' => $data['name'],
                     'coords' => $data['coords'],
                     'address' => $data['address'],
                     'metro' => $data['metro'],
-
                     'description' => $data['description'],
                     'id_manager' => $data['id_manager'],
                     'slug' => $data['slug'],
-
                     'id_coachs' => $arrcoach,
                     'id_area' => $data['id_area'],
                     'raiting_coach' => $data['raiting_coach'],
@@ -3158,9 +3163,11 @@ class DataBaseController extends Controller
                     'phone' => $data['phone'],
                     'time' => $data['time'],
                     'id_splead' => $data['id_splead'],
-
                     'display_front' => $display
                 ]);
+
+            $club = Club::query()->where("id", $id)->first();
+            $club->abonements()->sync($data['abonements']);
             return redirect()->route('clubList');
         }
         if ($data->isMethod('GET')) {
@@ -3171,6 +3178,7 @@ class DataBaseController extends Controller
     public function index_clubEdit($id)
     {
         $club = DB::table('club')->where('id', $id)->first();
+        $clubModel = Club::query()->where("id", $id)->first();
         $arrcoach = DB::table('coach')
             ->join('users', 'coach.user_id', '=', 'users.id')
             ->select('users.surname', 'users.name', 'coach.id')
@@ -3181,11 +3189,14 @@ class DataBaseController extends Controller
             ->get();
         $arrarea = DB::table('area')->get();
         $nameroute = "Редактирование клуба: " . $club->name;
+        $abonements = Abonement::query()->get();
         return view('login/club/clubEdit')
             ->with('arrmanagers', $arrmanagers)
+            ->with('abonements', $abonements)
             ->with('arrcoach', $arrcoach)
             ->with('arrarea', $arrarea)
             ->with('club', $club)
+            ->with('clubModel', $clubModel)
             ->with("nameroute", $nameroute);
     }
 

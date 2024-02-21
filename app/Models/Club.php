@@ -17,4 +17,9 @@ class Club extends Model
     {
         return $this->belongsToMany(Coach::class, "coach_club");
     }
+
+    public function abonements(): BelongsToMany
+    {
+        return $this->belongsToMany(Abonement::class, "abonement_club");
+    }
 }

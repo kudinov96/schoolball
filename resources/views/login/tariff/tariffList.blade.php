@@ -25,16 +25,6 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Наименование</th>
-
-            <th scope="col">Занятий</th>
-            <th scope="col">Заморозок</th>
-            <th scope="col">Тренировка</th>
-            <th scope="col">За месяц</th>
-            <th scope="col">Подарок</th>
-            <th scope="col">Стоимость</th>
-
-
-
         </tr>
         </thead>
         <tbody>
@@ -49,12 +39,6 @@
         <td><a href="/tariff/{{ $tariff->id }}/edit">
                 {{ $tariff->name }}
             </a></td>
-        <td>{{ $tariff->classes }} </td>
-        <td>{{ $tariff->freezing }} </td>
-        <td>{{ $tariff->training }} </td>
-        <td>{{ $tariff->per_month }} </td>
-        <td>{{ $tariff->gift }} </td>
-        <td>{{ $tariff->cost }} </td>
 
 
 

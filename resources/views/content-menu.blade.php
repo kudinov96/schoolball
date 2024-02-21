@@ -54,9 +54,7 @@
               <li><a>Учебный план</a></li>
               <li><a href="{{ route('schedule') }}">Расписание занятий</a></li>
               <li><a href="{{ route('scheduleweekend') }}">Расписание выходных</a></li>
-              <li><a href="{{ route('abonement') }}">Абонементы</a></li>
-              <li><a href="{{ route('tariff') }}">Тарифы</a></li>
-              <li><a href="{{ route('tarifflist') }}">Тарифы на главной</a></li>
+              <li><a href="{{ route('tariff') }}">Абонементы</a></li>
 
           </ul>
       </li>

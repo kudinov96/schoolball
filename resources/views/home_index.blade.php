@@ -2277,15 +2277,6 @@
                                             <span class="reviews__text"> <span style="color: #fec311;">4,6</span> стадионы </span>
                                             <span class="reviews__text"> <span style="color: #fec311;">4,6</span> менеджеры </span>
 
-                                            <?php /*
-                                        <select class="custom-select custom-select-lg mb-3 reviews-select">
-                                            <option selected="">все отделения</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
- */ ?>
-
                                         </div>
 
                                     </div>
@@ -2334,17 +2325,6 @@
                                                         style="color: #fec311;">4,6</span> стадионы </span> <br></div>
                                             <div style="margin-bottom: 8px"><span class="reviews__text"> <span
                                                         style="color: #fec311;">4,6</span> менеджеры </span> <br></div>
-                                            <?php /*
-                                        <select class="custom-select custom-select-lg mb-3 reviews-select">
-                                            <option selected>все отделения</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
-
- */
-
-                                            ?>
                                         </div>
 
                                     </div>
