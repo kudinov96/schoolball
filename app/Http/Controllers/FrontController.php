@@ -420,7 +420,7 @@ class FrontController extends Controller
         $index_abonements = \Illuminate\Support\Facades\DB::table("options")
             ->where("key" , "index_abonements")
             ->first();
-        $index_abonements = json_decode($index_abonements->value, true) ?? null;
+        $index_abonements = $index_abonements ? json_decode($index_abonements->value, true) : [];
 
         $abonements = Abonement::query()->whereIn("id", $index_abonements)->get();
 
