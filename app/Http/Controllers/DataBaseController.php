@@ -1562,7 +1562,7 @@ class DataBaseController extends Controller
             ->where("key" , "index_abonements")
             ->first();
 
-        $index_abonements = json_decode($index_abonements->value, true);
+        $index_abonements = json_decode($index_abonements->value, true) ?? null;
 
         $nameroute = "Редактирование главной: ";
         return view('login/mainindex/mainindexEdit')
