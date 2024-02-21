@@ -1529,13 +1529,13 @@ class DataBaseController extends Controller
                  //   $file->move('image',$name);
                     $images[]=$name;
                 }
-            }
 
-            DB::table('main_index')
-                ->where('id', $id)
-                ->update([
-                    'images_traning' => implode("|",$images),
-                ]);
+                DB::table('main_index')
+                    ->where('id', $id)
+                    ->update([
+                        'images_traning' => implode("|",$images),
+                    ]);
+            }
 
             if ($data->input("index_abonements")) {
                 DB::table("options")->updateOrInsert([
