@@ -3062,13 +3062,13 @@ class DataBaseController extends Controller
                     'time' => $data['time'],
                     'time' => $data['time'],
                     'id_manager' => $data['id_manager'],
-                    'id_coachs' => $arrcoach,
                     'id_area' => $data['id_area'],
                     'display_front' => $display,
                     'logo' => $path_image
                 ]);
 
             $club = Club::query()->where("id", $id)->first();
+            $club->coaches()->sync($data['coaches']);
             $club->abonements()->sync($data['abonements']);
 
             return redirect()->route('clubList');
@@ -3092,8 +3092,11 @@ class DataBaseController extends Controller
             ->get();
         $arrarea = DB::table('area')->get();
         $nameroute = "Создание нового клуба";
+        $abonements = Abonement::query()->get();
+        $coaches = Coach::query()->get();
         return view('login/club/clubNew')
-            ->with('abonements', Abonement::query()->get())
+            ->with('abonements', $abonements)
+            ->with('coaches', $coaches)
             ->with('arrmanagers', $arrmanagers)
             ->with('arrcoach', $arrcoach)
             ->with('arrarea', $arrarea)
@@ -3155,7 +3158,6 @@ class DataBaseController extends Controller
                     'description' => $data['description'],
                     'id_manager' => $data['id_manager'],
                     'slug' => $data['slug'],
-                    'id_coachs' => $arrcoach,
                     'id_area' => $data['id_area'],
                     'raiting_coach' => $data['raiting_coach'],
                     'raiting_stadion' => $data['raiting_stadion'],
@@ -3167,6 +3169,7 @@ class DataBaseController extends Controller
                 ]);
 
             $club = Club::query()->where("id", $id)->first();
+            $club->coaches()->sync($data['coaches']);
             $club->abonements()->sync($data['abonements']);
             return redirect()->route('clubList');
         }
@@ -3179,10 +3182,6 @@ class DataBaseController extends Controller
     {
         $club = DB::table('club')->where('id', $id)->first();
         $clubModel = Club::query()->where("id", $id)->first();
-        $arrcoach = DB::table('coach')
-            ->join('users', 'coach.user_id', '=', 'users.id')
-            ->select('users.surname', 'users.name', 'coach.id')
-            ->get();
         $arrmanagers = DB::table('users')
             ->join('users_roles', 'users.id', '=', 'users_roles.user_id')
             ->select('users.surname', 'users.name', 'users.id')
@@ -3190,10 +3189,11 @@ class DataBaseController extends Controller
         $arrarea = DB::table('area')->get();
         $nameroute = "Редактирование клуба: " . $club->name;
         $abonements = Abonement::query()->get();
+        $coaches = Coach::query()->get();
         return view('login/club/clubEdit')
             ->with('arrmanagers', $arrmanagers)
             ->with('abonements', $abonements)
-            ->with('arrcoach', $arrcoach)
+            ->with('coaches', $coaches)
             ->with('arrarea', $arrarea)
             ->with('club', $club)
             ->with('clubModel', $clubModel)

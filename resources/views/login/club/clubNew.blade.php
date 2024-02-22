@@ -83,12 +83,12 @@
               <div class="form-group row">
                 <label for="id_coachs" class="col-md-2 col-form-label-new text-md-right">{{ __('Тренеры клуба') }}</label>
                 <div class="col-sm-10">
-                  <select name="id_coachs[]" multiple="multiple" class="form-control select2" id="exampleFormControlSelect2">
-                    <option value="">Не выбрано</option>
-                    @foreach ($arrcoach as $coach)
-                      <option value="{{ $coach->id }}">{{ $coach->surname }} {{ $coach->name }}</option>
-                    @endforeach
-                  </select>
+                    <select name="coaches[]" multiple="multiple" class="form-control select2" style="min-height: 250px">
+                        <option value="">Не выбрано</option>
+                        @foreach ($coaches as $coach)
+                            <option value="{{ $coach->id }}">{{ $coach->id }}: {{ $coach->user->name }} {{ $coach->user->surname }}</option>
+                        @endforeach
+                    </select>
                 </div>
               </div>
 
