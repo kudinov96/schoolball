@@ -7,9 +7,9 @@ use App\Models\Abonement;
 use App\Models\Club;
 use App\Services\PageData\PageDataService;
 use Auth;
-use DB;
 use GuzzleHttp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use View;
@@ -417,7 +417,7 @@ class FrontController extends Controller
 
         }
 
-        $index_abonements = \Illuminate\Support\Facades\DB::table("options")
+        $index_abonements = DB::table("options")
             ->where("key" , "index_abonements")
             ->first();
         $index_abonements = $index_abonements ? json_decode($index_abonements->value, true) : [];
@@ -1105,6 +1105,12 @@ class FrontController extends Controller
 
     public function index_wekeend() {
 
+        $index_abonements = DB::table("options")
+            ->where("key" , "index_abonements")
+            ->first();
+        $index_abonements = $index_abonements ? json_decode($index_abonements->value, true) : [];
+
+        $cards = Abonement::query()->whereIn("id", $index_abonements)->get();
 
         /*$cards = DB::select("SELECT * from tariffs_site where
                                       id in( select min(id)
@@ -1115,6 +1121,8 @@ class FrontController extends Controller
             ->where('default_public', 'on')
             ->orderBy('price', 'ASC')
             ->get();*/
+
+
 
 
         $lastnews = DB::table('news')
