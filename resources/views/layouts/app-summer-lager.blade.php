@@ -44,7 +44,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('js/owlcarousel/assets/owl.theme.default.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/floating_forms.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/new.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/new.css?v=1') }}">
 
 
 

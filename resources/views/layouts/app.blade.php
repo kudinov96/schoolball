@@ -37,7 +37,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('js/slick/slick-theme.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/flipper.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-    <link rel="stylesheet" href="{{ asset('css/new.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/new.css?v=1') }}">
 
 
 
