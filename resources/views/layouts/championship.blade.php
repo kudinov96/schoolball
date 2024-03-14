@@ -147,7 +147,7 @@
             <a onclick="showMenuContent()"  href="/home#methodsmob">МЕТОДИКА</a>
             <a onclick="showMenuContent()"  href="/home#coachesmob">ТРЕНЕРЫ</a>
             <a onclick="showMenuContent()"  href="/clubs">КЛУБЫ</a>
-            <a onclick="showMenuContent()"  href="/catalog">ЛАГЕРЯ</a>
+            <a onclick="showMenuContent()"  href="/camp/cao">ЛАГЕРЯ</a>
 
             <a onclick="showMenuContent()" href="/home#reviewsmob">ОТЗЫВЫ</a>
             <a onclick="showMenuContent()" href="/blog">БЛОГ</a>
@@ -369,7 +369,7 @@
                             <h3><a href="/clubs">КЛУБЫ</a></h3>
                         </div>
                         <div class="col-auto text-center mainHeaderMenu">
-                            <h3><a href="/catalog">ЛАГЕРЯ</a></h3>
+                            <h3><a href="/camp/cao">ЛАГЕРЯ</a></h3>
                         </div>
 
                         <div class="col-auto text-center mainHeaderMenu">

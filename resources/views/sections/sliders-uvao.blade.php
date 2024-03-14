@@ -4,11 +4,13 @@
 
 
     <div class="col text-center mobFontSize d-none d-md-block">
-        <h3 class="desc_heading" style="height: auto !important; margin: 65px 0;">Выберите свой формат участия:</h3>
+        <h3 class="desc_heading" style="height: auto !important; margin: 65px 0 35px;">Выберите свой формат участия:</h3>
+        <h5 class="text-desc" style="font-size: 26px; margin-bottom: 50px;">При бронировании до 1 апреля доступны более выгодные цены (подробности уточняйте у менеджера)</h5>
     </div>
 
     <div class="col text-center mobFontSize  d-sm-block d-md-none">
-        <h3 class="mob_heading" style="height: auto !important; margin: 65px 0;">Выберите свой формат участия:</h3>
+        <h3 class="mob_heading" style="height: auto !important; margin: 65px 0 35px;">Выберите свой формат участия:</h3>
+        <h5 class="text-desc" style="font-size: 18px; margin-top: 12px !important; margin-bottom: 32px !important;">При бронировании до 1 апреля доступны более выгодные цены (подробности уточняйте у менеджера)</h5>
     </div>
 
     <div class="container">
@@ -41,7 +43,7 @@
 
 
                             <div class="upcomingCard__price">
-                                от 742 руб.
+                                от 900 руб.
                             </div>
                         </div>
 
@@ -134,7 +136,7 @@
     padding-top: 37px !important;
     margin-bottom: 0px !important;
     ">
-                            4 490 руб.
+                            5 300 руб.
                         </div>
 
                     </div>
@@ -226,7 +228,7 @@
                         <p class="card-text" style="height: auto; text-align: left; font-size: 15px; margin-bottom: 35px;">Ваш ребенок не просто улучшит свои навыки игры в футбол, укрепит характер и физическую форму, но и отлично проведет время среди сверстников. Такое лето он будет помнить долго! Этот формат выбирают как любители, так и учащиеся ДЮСШ, желающие продолжать занятия даже летом.</p>
 
                             <div class="upcomingCard__price">
-                                34 900 руб.
+                                38 990 руб.
                             </div>
 
 

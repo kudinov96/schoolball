@@ -5,13 +5,13 @@
             <div class="mobSeventhSection col-md-12 text-center">
                 <div class="mobSeventhSection col-md-12 text-center d-none d-md-block">
                     <h3 class="title-desc" style=" margin-bottom: 35px !important;">Тренерский состав</h3>
-                    <h4 style="margin-bottom:110px;">Занятия проводят профессиональные детские тренеры с богатым опытом работы</h4>
+                    <h4 style="margin-bottom:110px;">В нашем кэмпе работают настоящие профи своего дела, которые умеют создавать праздничное настроение и готовы помочь ребенку в любой ситуации</h4>
 
                 </div>
 
                 <div class="col text-left mobFontSize d-sm-block d-md-none" style=" ">
                     <h3 class="mob-title-sec" style="  ">Тренерский состав</h3>
-                    <h4 style="">Занятия проводят профессиональные детские тренеры с богатым опытом работы</h4>
+                    <h4 style="">В нашем кэмпе работают настоящие профи своего дела, которые умеют создавать праздничное настроение и готовы помочь ребенку в любой ситуации</h4>
 
                 </div>
 

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h3 style="margin: 65px 0;">Мы продумали каждую деталь и предлагаем самую насыщенную в Москве программу:</h3>
+                <h3 style="margin: 65px 0;">«Школа мяча» проводит детские кэмпы уже более 15 лет. Мы продумали каждую деталь и предлагаем самую насыщенную в Москве программу:</h3>
             </div>
             <div id="program" style="visibility: hidden;position: relative;top: -100px;"></div>
             <div class="col-auto center-block  text-center">
@@ -59,11 +59,11 @@
 
                             @if( $key == 6)
                                 <div id="campVideoFifa" class="col-md-5" style="cursor:pointer">
-                                    <video width="100%" autoplay="autoplay" loop="loop">
+                                    {{--<video width="100%" autoplay="autoplay" loop="loop">
                                         <source src="{{ asset('assets/video/camp/sl-fifa.mp4') }}">
                                         Тег video не поддерживается вашим браузером.
-                                    </video>
-                                    <!-- <img src="{{ asset('assets/images/camp/sl-fifa.png') }}" style="width: 100%; height: auto !important;"> -->
+                                    </video>--}}
+                                    <img src="{{ asset('assets/images/camp/sl-fila-new.png') }}" style="width: 100%; height: auto !important;">
                                 </div>
                                 <div id="campVideoFifaLightbox" class="d-none">
                                     <div class="lightboxBack" >
@@ -379,7 +379,7 @@ width: 100%; height: auto !important;">
             <div class="col-md-12 campLocation text-center">
                 <div id="programamob"  style="visibility: hidden;position: relative;top: -100px;"></div>
 
-                <h3 style="">Мы продумали каждую деталь и предлагаем самую насыщенную в Москве программу:</h3>
+                <h3 style="">«Школа мяча» проводит детские кэмпы уже более 15 лет. Мы продумали каждую деталь и предлагаем самую насыщенную в Москве программу:</h3>
             </div>
         </div>
         <div class="row mobile-advantage-slider">

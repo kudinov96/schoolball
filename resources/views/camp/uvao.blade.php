@@ -14,9 +14,9 @@
           <div class="firstSection">
             <div class="row">
               <div class="col-md-6 firstSectionDescription">
-                <h1 class="h1-title">Футбольный лагерь дневного пребывания в Кузьминках</h1>
+                <h1 class="h1-title">Детский спортивный кэмп дневного пребывания в Кузьминках</h1>
 
-                <h4 style="font-size: 26px !important;">Ребенок с 9 до 19 часов погружается в дружескую атмосферу, учится достигать цели и находится в балансе между отдыхом и физическими нагрузками</h4>
+                <h4 style="font-size: 26px !important;">Ребенок с 9 до 19 часов погружается в дружескую атмосферу, учится достигать цели и находится в балансе между отдыхом, физическими нагрузками и развитием</h4>
 
                   <button type="button" name="button" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg">Получить консультацию
                   </button>
@@ -51,8 +51,8 @@
                 <img src="{{ asset('assets/images/camp/main-logo-uvao.png') }}" alt="" style="width: 90%;">
               </div>
               <div class="col-12 firstSectionDescription text-center">
-                <h1  class="h1-title-mob">Футбольный лагерь дневного пребывания в Кузьминках</h1>
-                <h4>Ребенок с 9 до 19 часов погружается в дружескую атмосферу, учится достигать цели и находится в балансе между отдыхом и физическими нагрузками</h4>
+                <h1  class="h1-title-mob">Детский спортивный кэмп дневного пребывания в Кузьминках</h1>
+                <h4>Ребенок с 9 до 19 часов погружается в дружескую атмосферу, учится достигать цели и находится в балансе между отдыхом, физическими нагрузками и развитием</h4>
 
 
                 <button type="button"   style="margin-top:10px;" name="button" data-toggle="modal" data-animation="bounce" data-target=".bs-example-modal-lg">Получить консультацию</button>
@@ -86,7 +86,8 @@
 
       <!-- Заявки на получение программы   -->
 
-      @include('sections.program')
+      {{--@include('sections.program')--}}
+      @include('sections.program-new')
 
 
       <!-- Распорядок дня  -->

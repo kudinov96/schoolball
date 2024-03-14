@@ -109,7 +109,7 @@
             <a onclick="showMenuContent()" href="{{ request()->is(['catalog', 'blog', 'clubs']) ? '/home#methodsmob' : '#methodsmob' }}">МЕТОДИКА</a>
             <a onclick="showMenuContent()" href="{{ request()->is(['catalog', 'blog', 'clubs']) ? '/home#coachesmob' : '#coachesmob' }}">ТРЕНЕРЫ</a>
             <a href="/clubs">КЛУБЫ</a>
-            <a onclick="showMenuContent()" href="/catalog">ЛАГЕРЯ</a>
+            <a onclick="showMenuContent()" href="/camp/cao">ЛАГЕРЯ</a>
             <a onclick="showMenuContent()" href="{{ request()->is(['catalog', 'blog', 'clubs']) ? '/home#reviewsmob' : '#reviewsmob' }}">ОТЗЫВЫ</a>
             <a href="{{ route('blog') }}">БЛОГ</a>
 
@@ -269,7 +269,7 @@
                             <h3><a href="/clubs">КЛУБЫ</a></h3>
                         </div>
                         <div class="col-auto text-center mainHeaderMenu">
-                            <h3><a href="/catalog">ЛАГЕРЯ</a></h3>
+                            <h3><a href="/camp/cao">ЛАГЕРЯ</a></h3>
                         </div>
 
                         <div class="col-auto text-center mainHeaderMenu">
