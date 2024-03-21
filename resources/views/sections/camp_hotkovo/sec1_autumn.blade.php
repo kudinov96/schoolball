@@ -4,7 +4,7 @@
             <div class="col-md-12 text-center  d-none d-md-block">
                 <div id="about"  style="visibility: hidden;position: relative;top: -100px;"></div>
 
-                <h3 class="title-desc" style="margin-bottom: 32px !important;"> Осенью!
+                <h3 class="title-desc" style="margin-bottom: 32px !important;"> Этим летом!
                 </h3>
                 <h4 class="main_desc" style="  line-height: 1.54; margin-bottom: 72px;">
                     Подарите своему ребенку счастливые каникулы и новых друзей.

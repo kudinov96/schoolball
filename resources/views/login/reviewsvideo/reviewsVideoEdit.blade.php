@@ -40,6 +40,7 @@
                                 <option value="Кузьминки" {{ in_array('Кузьминки', explode(',', $review->pages)) ? 'selected' : '' }}>Кузьминки</option>
                                 <option value="Горизонт" {{ in_array('Горизонт', explode(',', $review->pages)) ? 'selected' : '' }}>Горизонт</option>
                                 <option value="Дмитров" {{ in_array('Дмитров', explode(',', $review->pages)) ? 'selected' : '' }}>Дмитров</option>
+                                <option value="Хотьково" {{ in_array('Хотьково', explode(',', $review->pages)) ? 'selected' : '' }}>Хотьково</option>
 
                             </select>
                         </div>

@@ -37,6 +37,7 @@
                                         <option value="Кузьминки">Кузьминки</option>
                                         <option value="Горизонт">Горизонт</option>
                                         <option value="Дмитров">Дмитров</option>
+                                        <option value="Хотьково">Хотьково</option>
 
                                     </select>
                                 </div>

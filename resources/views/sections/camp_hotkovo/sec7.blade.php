@@ -64,7 +64,7 @@
             </div>
 
             <h5 class="col-md-12 text-center d-none d-md-block" style="font-family: IBMPlexSans-Bold;font-size: 28px;margin-top: 50px; margin-bottom: 45px !important;">
-                Стоимость участия
+                Всё включено:
 
             </h5>
 

@@ -13,7 +13,7 @@
           <div class="firstSection">
             <div class="row">
               <div class="col-md-6 firstSectionDescription">
-                <h1 class="h1-title">Летний футбольный лагерь в Подмосковье (выездной)</h1>
+                <h1 class="h1-title">Летний футбольный кэмп в Подмосковье (выездной)</h1>
                 <h4 style="font-size: 26px !important;">Ребенок на целую неделю погружается в дружескую атмосферу, учится достигать цели и находится в балансе между отдыхом и физическими нагрузками
 
                 </h4>
@@ -84,7 +84,7 @@
 
 
 
-      @include('sections.program-dmitrov')
+      {{--@include('sections.program-dmitrov')--}}
 
 
 

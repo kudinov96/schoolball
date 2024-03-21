@@ -59,7 +59,7 @@
                     <p class="title-desc" style="margin-top: 10px !important;
     margin-bottom: 35px !important;
     text-align: center;"><span class="old-price" style="    margin-right: 40px;
-    font-family: IBMPlexSans, sans-serif !important;">54 990 ₽</span>  49 900 ₽ </p>
+    font-family: IBMPlexSans, sans-serif !important;">56 990 ₽</span>  54 990 ₽ </p>
 
 
                 </div>
